@@ -1,0 +1,38 @@
+{
+  "name": "@musicbot/core",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "scripts": {
+    "build": "babel -D -d dist src",
+    "build:watch": "npm run -s build -- -w",
+    "start": "npm run -s build:watch",
+    "prepare": "npm run -s build",
+    "clean": "rimraf dist"
+  },
+  "bin": {
+    "musicbot": "dist/index.js"
+  },
+  "author": "Carl Kittelberger <icedream@icedream.pw>",
+  "license": "GPL-2.0+",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icedream/musicbot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/icedream/musicbot/issues"
+  },
+  "homepage": "https://github.com/icedream/musicbot#readme",
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "convict": "^4.0.1",
+    "tempy": "^0.2.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb-base": "^12.0.1",
+    "nodemon": "^1.12.1",
+    "rimraf": "^2.6.2"
+  }
+}

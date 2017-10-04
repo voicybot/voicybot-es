@@ -1,0 +1,9 @@
+{
+  "lerna": "2.3.1",
+  "packages": [
+    "packages/*"
+  ],
+  "concurrency": 4,
+  "stream": true,
+  "version": "0.0.0"
+}

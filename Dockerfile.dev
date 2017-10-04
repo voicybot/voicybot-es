@@ -1,0 +1,15 @@
+FROM node:alpine
+
+# TODO - run as separate app user
+
+RUN \
+	apk add --no-cache \
+		--repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ \
+		--allow-untrusted \
+		pulseaudio \
+		xf86-video-dummy \
+		xorg-server
+
+WORKDIR /app
+
+VOLUME ["/app"]

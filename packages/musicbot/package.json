@@ -1,0 +1,43 @@
+{
+  "name": "musicbot",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "scripts": {
+    "build": "babel -D -d dist src",
+    "build:watch": "npm run -s build -- -w",
+    "prepare": "npm run -s build",
+    "start": "nodemon ./src --exec babel-node",
+    "clean": "rimraf dist"
+  },
+  "bin": {
+    "musicbot": "dist/index.js"
+  },
+  "author": "Carl Kittelberger <icedream@icedream.pw>",
+  "license": "GPL-2.0+",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icedream/musicbot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/icedream/musicbot/issues"
+  },
+  "homepage": "https://github.com/icedream/musicbot#readme",
+  "description": "",
+  "dependencies": {
+    "@musicbot/core": "^0.0.1",
+    "bunyan": "^1.8.12",
+    "convict": "^4.0.1",
+    "temp": "^0.8.3"
+  },
+  "devDependencies": {
+    "@musicbot/core": "^0.0.1",
+    "@musicbot/plugin-teamspeak3": "^0.0.1",
+    "@musicbot/plugin-webadmin": "^0.0.1",
+    "babel-cli": "^6.26.0",
+    "eslint-config-airbnb-base": "^12.0.1",
+    "eslint": "^4.8.0",
+    "rimraf": "^2.6.2",
+    "nodemon": "^1.12.1"
+  }
+}

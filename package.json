@@ -1,0 +1,57 @@
+{
+  "name": "@musicboot/buildroot",
+  "version": "0.0.1",
+  "scripts": {
+    "postinstall": "npm run -s lerna:bootstrap",
+    "docker-compose": "bnr docker-compose",
+    "docker-compose:up": "npm run -s docker-compose up --exit-code-from=bot --build --remove-orphans",
+    "docker-compose:up:daemon": "npm run -s docker-compose:up -d",
+    "docker-compose:down": "npm run -s docker-compose down",
+    "lerna": "lerna",
+    "lerna:bootstrap": "lerna bootstrap --hoist",
+    "lerna:start": "lerna run --parallel start",
+    "lerna:build": "lerna run build",
+    "lerna:build:watch": "lerna run --parallel build:watch",
+    "lerna:clean": "lerna clean",
+    "start": "npm run -s docker-compose:up",
+    "start:directly": "npm run -s lerna:start",
+    "build": "npm run -s lerna:build",
+    "build:clean": "lerna run clean",
+    "build:watch": "npm run -s lerna:build:watch",
+    "clean": "npm run -s build:clean",
+    "watch": "npm run -s lerna:build:watch"
+  },
+  "betterScripts": {
+    "docker-compose": {
+      "command": "docker-compose -f docker-compose.dev.yml",
+      "env": {
+        "COMPOSE_HTTP_TIMEOUT": 10000000
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icedream/musicbot.git"
+  },
+  "author": "Carl Kittelberger <icedream@icedream.pw>",
+  "license": "GPL-2.0+",
+  "bugs": {
+    "url": "https://github.com/icedream/musicbot/issues"
+  },
+  "homepage": "https://github.com/icedream/musicbot#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-plugin-dynamic-import-node": "^1.1.0",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "better-npm-run": "^0.1.0",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb-base": "^12.0.1",
+    "eslint-plugin-import": "^2.7.0",
+    "lerna": "^2.3.1",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {}
+}

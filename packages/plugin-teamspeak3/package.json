@@ -1,0 +1,34 @@
+{
+  "name": "@musicbot/plugin-teamspeak3",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "scripts": {
+    "build": "babel -D -d dist src",
+    "build:watch": "npm run -s build -- -w",
+    "start": "npm run -s build:watch",
+    "prepare": "npm run -s build",
+"clean": "rimraf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icedream/musicbot.git"
+  },
+  "author": "Carl Kittelberger <icedream@icedream.pw>",
+  "license": "GPL-2.0+",
+  "bugs": {
+    "url": "https://github.com/icedream/musicbot/issues"
+  },
+  "homepage": "https://github.com/icedream/musicbot#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb-base": "^12.0.1",
+    "@musicbot/core": "^0.0.1",
+"rimraf": "^2.6.2"
+  },
+  "peerDependencies": {
+    "@musicbot/core": "^0.0.1"
+  }
+}
