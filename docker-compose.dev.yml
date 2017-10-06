@@ -30,3 +30,11 @@ services:
       - /app/packages/plugin-teamspeak3/node_modules
       - /app/packages/plugin-webadmin/node_modules
       - /app/node_modules
+
+  # TeamSpeak 3 server
+  ts3server:
+    build:
+      context: https://github.com/icedream/docker-ts3server.git
+    
+    volumes:
+      - /data
