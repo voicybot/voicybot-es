@@ -6,6 +6,7 @@ RUN \
 	apk add --no-cache \
 		--repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ \
 		--allow-untrusted \
+		git \
 		pulseaudio \
 		xf86-video-dummy \
 		xorg-server
