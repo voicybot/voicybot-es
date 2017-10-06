@@ -2,7 +2,6 @@
 
 set -e
 
-npm install --unsafe-perm
-npm run build
-exec npm run start:directly
-
+npm --unsafe-perm install
+npm --unsafe-perm run build
+exec npm --unsafe-perm run start:directly

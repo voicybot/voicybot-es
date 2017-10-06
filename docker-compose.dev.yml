@@ -10,12 +10,15 @@ services:
       dockerfile: Dockerfile.dev
 
     command: [sh, /app/install_and_run.sh]
-    
+
     tty: true
-    
+
     environment:
       NPM_CONFIG_CACHE: /var/tmp/npm_cache
       NODE_ENV: development
+
+    tmpfs:
+      - /tmp
 
     volumes:
       - .:/app
