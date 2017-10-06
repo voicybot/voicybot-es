@@ -37,11 +37,18 @@ export default class Application {
     sortedServices.sort(compareServicesByDependencies);
 
     // Sequential startup
-    return this.services
-      .reduce((p, service) => p.then(service.start()), Promise.resolve());
-
-    // Parallel startup
-    // await this.services.map(async service => service.start());
+    return sortedServices
+      .reduce(
+        (p, service) => p
+          .then(() => {
+            logger.info('Starting service:', service.name);
+          })
+          .then(() => service.start())
+          .then(() => {
+            logger.info('Started service:', service.name);
+          }),
+        Promise.resolve(),
+      );
   }
 
   async stop() {
@@ -55,9 +62,16 @@ export default class Application {
 
     // Sequential shutdown
     return reversedServices
-      .reduce((p, service) => p.then(service.stop()), Promise.resolve());
-
-    // Parallel shutdown
-    // await reversedServices.map(async service => service.stop());
+      .reduce(
+        (p, service) => p
+          .then(() => {
+            logger.info('Stopping service:', service.name);
+          })
+          .then(() => service.stop())
+          .then(() => {
+            logger.info('Stopped service:', service.name);
+          }),
+        Promise.resolve(),
+      );
   }
 }
