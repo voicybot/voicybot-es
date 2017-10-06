@@ -9,7 +9,7 @@
     "build:watch": "npm run -s build -- -w",
     "start": "npm run -s build:watch",
     "prepare": "npm run -s build",
-"clean": "rimraf dist"
+    "clean": "rimraf dist"
   },
   "repository": {
     "type": "git",
@@ -21,12 +21,14 @@
     "url": "https://github.com/icedream/musicbot/issues"
   },
   "homepage": "https://github.com/icedream/musicbot#readme",
-  "dependencies": {},
+  "dependencies": {
+    "stream-splitter": "^0.3.2"
+  },
   "devDependencies": {
     "eslint": "^4.8.0",
     "eslint-config-airbnb-base": "^12.0.1",
     "@musicbot/core": "^0.0.1",
-"rimraf": "^2.6.2"
+    "rimraf": "^2.6.2"
   },
   "peerDependencies": {
     "@musicbot/core": "^0.0.1"
