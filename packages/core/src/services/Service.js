@@ -52,7 +52,7 @@ export default class Service {
 
       this.logger.info('Xorg stopping...');
 
-      this.subprocess.once('close', (code) => {
+      this.subprocess.once('exit', (code) => {
         resolve(code);
       });
 
