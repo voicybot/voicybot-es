@@ -2,6 +2,7 @@ import {
   XorgService,
   PulseAudioService,
 } from './services';
+import { Logger } from './logging';
 
 function compareServicesByDependencies(a, b) {
   if (a.dependencies.indexOf(b.name) >= 0) {
@@ -19,13 +20,19 @@ export default class Application {
       new XorgService(),
       new PulseAudioService(),
     ];
+    this.logger = new Logger('app');
   }
 
   pushService(...services) {
+    this.logger.debug('Registering services:', ...services.map(service => service.name));
     this.services.push(...services);
   }
 
   async start() {
+    const { logger } = this;
+
+    logger.debug('Starting application...');
+
     const sortedServices = [...this.services];
     sortedServices.sort(compareServicesByDependencies);
 
@@ -38,6 +45,10 @@ export default class Application {
   }
 
   async stop() {
+    const { logger } = this;
+
+    logger.debug('Shutting down application...');
+
     const reversedServices = [...this.services];
     reversedServices.sort(compareServicesByDependencies);
     reversedServices.reverse();

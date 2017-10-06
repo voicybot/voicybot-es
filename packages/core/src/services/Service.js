@@ -1,6 +1,6 @@
 import { spawn } from 'child_process';
 import procenv from './process_environment';
-import createLogger from '../logger';
+import { Logger } from '../logging';
 
 export default class Service {
   constructor({
@@ -18,7 +18,8 @@ export default class Service {
         ...procenv,
         ...environment,
       },
-      logger: createLogger(`service:${name}`),
+      logger: new Logger(`service:${name}`),
+      name,
     });
   }
 

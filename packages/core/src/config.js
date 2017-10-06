@@ -1,4 +1,5 @@
 import convict from 'convict';
+import { Logger } from './logging';
 
 convict.addFormat({
   name: 'StringArray',
@@ -20,7 +21,13 @@ config.loadFile([
   './config.json',
 ]);
 
+const logger = new Logger('config');
+
+logger.debug('Loaded configuration:', config.toString());
+
 // Perform validation
+logger.debug('Validating configuration...');
 config.validate({ allowed: 'strict' });
+logger.debug('Configuration validated.');
 
 export default config;

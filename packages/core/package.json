@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/icedream/musicbot#readme",
   "dependencies": {
-    "bunyan": "^1.8.12",
     "convict": "^4.0.1",
+    "npmlog": "^4.1.2",
     "tempy": "^0.2.1"
   },
   "devDependencies": {
