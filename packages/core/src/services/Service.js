@@ -30,6 +30,14 @@ export default class Service {
     ];
   }
 
+  getProcessOptions() {
+    return {
+      detached: false,
+      stdio: 'inherit',
+      environment: this.environment,
+    };
+  }
+
   start(...args) {
     const finalArgs = this.getProcessArguments(...args);
 
@@ -37,11 +45,7 @@ export default class Service {
 
     this.logger.info(`${this.binaryName} starting...`);
 
-    this.subprocess = spawn(this.binaryName, finalArgs, {
-      detached: false,
-      stdio: 'inherit',
-      environment: this.environment,
-    });
+    this.subprocess = spawn(this.binaryName, finalArgs, this.getProcessOptions());
   }
 
   async stop() {
