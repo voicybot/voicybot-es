@@ -29,5 +29,8 @@ packages/*/node_modules/*
 packages/*/dist/*
 packages/*/lib/*
 
+# NPM cache on Travis
+.npm_cache
+
 # Allow folders with .gitkeep file
 !.gitkeep

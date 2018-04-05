@@ -1,0 +1,21 @@
+language: node_js
+
+node_js:
+  - "6"
+  - "8"
+  - "9"
+
+before_install:
+  - export NPM_CONFIG_CACHE=$(pwd)/.npm_cache
+  - export NODE_ENV=development
+
+cache:
+  yarn: true
+  directories:
+    - ./.npm_cache
+    - ./packages/musicbot/node_modules
+    - ./packages/plugin-source-spotify/node_modules
+    - ./packages/plugin-source-youtube-dl/node_modules
+    - ./packages/plugin-teamspeak3/node_modules
+    - ./packages/plugin-webadmin/node_modules
+    - ./node_modules
