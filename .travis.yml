@@ -19,3 +19,7 @@ cache:
     - ./packages/plugin-teamspeak3/node_modules
     - ./packages/plugin-webadmin/node_modules
     - ./node_modules
+
+script:
+  - yarn
+  - NODE_ENV=production yarn build
